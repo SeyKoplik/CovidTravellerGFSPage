@@ -31,15 +31,13 @@
             </h3>
         <div class="searchPart">
         <div class="ui massive icon input">
-            <input type="text" placeholder="Enter a state.."><i class="search icon" id="searchInput"></i>
+            <input type="text" placeholder="Enter a state.." id="searchInput">
+            <a href="#"><i class="search icon" id="searchIcon"></i></a>
         </div>
         </div>
     </header> <!--END OF HEADER-->
 
-    <div class="modalGoesHere">
-        <button class="ui primary button" id="covidButton"><h2>Click this to get the covid info</h2></button>
-    </div>
-
+    <!--MODAL BEGIN-->
     <div class="ui modal">
         <div class="header">Covid State Info..</div>
         <div class="covidStateChartHere">
@@ -48,6 +46,15 @@
         <div class="actions">
             <div class="ui approve button">Ok</div>
         </div>
+    </div>
+    <!--MODAL END-->
+
+ <!--!!REMEMBER TO HIDE!!-->
+  
+<div class="showAllStateFacts"> 
+    <!--CLICK BUTTON FOR MODAL-->
+    <div class="modalGoesHere">
+        <button class="ui primary button" id="covidButton"><h2>Click this to get the covid info</h2></button>
     </div>
 
     <div class="ui grid" id="infoOne">
@@ -76,6 +83,7 @@
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, esse neque? Aliquam quisquam suscipit, exercitationem deserunt voluptatum modi. Vel, omnis excepturi? Soluta quasi mollitia fugit libero itaque quo sapiente porro.</p>
     </div>
     </div>
+</div><!--Showallstatefact DIV ENDS-->
   
 
 </div><!--END OF CONTAINER-->

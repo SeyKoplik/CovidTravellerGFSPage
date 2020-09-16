@@ -16,8 +16,7 @@ body {
     color: whitesmoke;
     background-color: lightskyblue;
     margin: auto;
-    padding-top: 15px;
-    padding: 60px;
+    padding: 50px;
     width: 800px;
 }
 
@@ -75,7 +74,7 @@ body {
   }
 
 .modalGoesHere {
-      margin-left: 420px;
+      margin-left: 460px;
       padding-top: 10px;
       padding-bottom: 10px;
       /* display: none; */
@@ -105,4 +104,14 @@ body {
     padding: 10px;
     width: 800px;
     height: 200px;
+  }
+
+  .showAllStateFacts {
+      display: none;
+  }
+
+  #searchIcon {
+      padding-top: 12px;
+      margin-top: 10px;
+      width: 40px;
   }
