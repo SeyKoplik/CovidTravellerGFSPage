@@ -6,39 +6,38 @@ body {
 
 .container {
     margin: auto;
-    height: 1000px;
+    height: 1200px;
     background: url("ocean.jpg") center center fixed;
     background-size: cover;
+    background-color: rgb(60, 65, 70);
 }
 
 .siteHeader {
     color: whitesmoke;
     background-color: lightskyblue;
     margin: auto;
-    padding-top: 20px;
+    padding-top: 15px;
     padding: 60px;
     width: 800px;
 }
 
 .searchPart {
-    margin-left: 150px;
+    margin-left: 260px;
     margin-top: 40px;
     padding: 15px;
 }
 
-/* The side navigation menu */
 .sidebar {
     margin: 0;
     padding: 0;
     padding-top: 200px;
-    width: 225px;
+    width: 200px;
     background-color: #f1f1f1;
     position: fixed;
     height: 100%;
     overflow: auto;
   }
   
-  /* Sidebar links */
   .sidebar a {
     display: block;
     color: black;
@@ -47,20 +46,17 @@ body {
     font-size: medium;
   }
 
-  /* Links on mouse-over */
   .sidebar a:hover:not(.active) {
     background-color: lightskyblue;
     color: white;
   }
   
-  /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
   div.content {
     margin-left: 200px;
     padding: 2px 16px;
     height: 1000px;
   }
   
-  /* On screens that are less than 700px wide, make the sidebar into a topbar */
   @media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
@@ -71,7 +67,6 @@ body {
     div.content {margin-left: 0;}
   }
   
-  /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
   @media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
@@ -79,8 +74,35 @@ body {
     }
   }
 
-  .modalGoesHere {
-      margin-left: 440px;
+.modalGoesHere {
+      margin-left: 420px;
       padding-top: 10px;
+      padding-bottom: 10px;
       /* display: none; */
+  }
+
+#infoOne {
+    background-color: lightskyblue;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 800px;
+    height: 200px;
+  }
+
+  #infoTwo {
+    background-color: lightskyblue;
+    margin: auto;
+    margin-bottom: 15px;
+    padding: 10px;
+    width: 800px;
+    height: 200px;
+  }
+
+  #infoThree {
+    background-color: lightskyblue;
+    margin: auto;
+    padding: 10px;
+    width: 800px;
+    height: 200px;
   }
