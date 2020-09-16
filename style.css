@@ -1,0 +1,28 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    background-color: white;
+}
+
+.container {
+    margin: auto;
+    height: 1000px;
+    background: url("ocean.jpg") center center fixed;
+    background-size: cover;
+}
+
+.siteHeader {
+    color: whitesmoke;
+    background-color: lightskyblue;
+    margin: auto;
+    padding-top: 20px;
+    padding: 60px;
+    width: 800px;
+}
+
+.searchPart {
+    margin-left: 150px;
+    margin-top: 40px;
+    padding: 10px;
+}
+
