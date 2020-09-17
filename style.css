@@ -69,10 +69,9 @@ body {
   }
 
 .modalGoesHere {
-      margin-left: 460px;
+      margin-left: 380px;
       padding-top: 10px;
       padding-bottom: 10px;
-      /* display: none; */
   }
 
 #infoOne {
@@ -80,11 +79,12 @@ body {
     margin: auto;
     margin-bottom: 15px;
     padding: 10px;
+    padding-left: 50px;
     width: 700px;
     height: 200px;
   }
 
-  #infoTwo {
+#infoTwo {
     background-color: lightskyblue;
     margin: auto;
     margin-bottom: 15px;
@@ -93,27 +93,32 @@ body {
     height: 200px;
   }
 
-  #infoThree {
+#infoThree {
     background-color: lightskyblue;
     margin: auto;
     padding: 10px;
+    padding-left: 80px;
     width: 700px;
     height: 200px;
   }
 
-  .showAllStateFacts {
+.showAllStateFacts {
       display: none;
   }
 
-  #searchIcon {
+#searchIcon {
       padding-top: 12px;
       margin-top: 10px;
       width: 40px;
   }
 
-  #h3Header {
+#h3Header {
       text-align: right;
       border-top-style: solid;
       border-top-color: #f1f1f1;
       padding-top: 5px;
   }
+
+hr {
+    border: solid 1px #f1f1f1;
+}
