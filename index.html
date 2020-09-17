@@ -17,10 +17,9 @@
 <body>
     <div class="container"> <!--CONTAINER OF ALL PAGE-->
        
-        <div class="sidebar"><!--BEGIN SIDEBAR-->
-            <a href="#">State 1</a>
-            <a href="#">State 2</a>
-            <a href="#">State 3</a>
+        <div class="sidebar" 
+            id="newCityList">
+            <!--BEGIN SIDEBAR-->
         </div><!--END SIDEBAR-->
 
     <header class="siteHeader"> <!--BEGINNING OF HEADER-->
@@ -40,9 +39,9 @@
 
     <!--MODAL BEGIN-->
     <div class="ui modal">
-        <div class="header">Covid State Info..</div>
+        <div class="header">State Covid Info</div>
         <div class="covidStateChartHere">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit, quidem! Cum fugit, obcaecati repudiandae saepe perspiciatis, molestiae ad commodi voluptates sunt sit libero totam ratione dolor inventore laboriosam impedit earum.</p>
+            <!--CHART INFO IN HERE FOR MODAL-->
         </div>
         <div class="actions">
             <div class="ui approve button">Ok</div>
@@ -50,7 +49,7 @@
     </div>
     <!--MODAL END-->
 
- <!--!!REMEMBER TO HIDE!!-->
+<!--!!REMEMBER TO HIDE!!-->
   
 <div class="showAllStateFacts"> 
     <!--CLICK BUTTON FOR MODAL-->
@@ -63,43 +62,25 @@
         <img src="https://via.placeholder.com/150">
         </div>
         <div class="ten wide column">
-        <h3><span id="stateNam">Insert State Name Here</span></h3>
+        <h3><span id="stateName"></span></h3>
         <hr>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, esse neque? Aliquam quisquam suscipit, exercitationem deserunt voluptatum modi. Vel, omnis excepturi? Soluta quasi mollitia fugit libero itaque quo sapiente porro.</p>
         </div>
     </div>
 
     <div class="ui four column relaxed grid" id="infoTwo">
-        <div class="column">
-          <img>
-        </div>
-        <div class="column">
-          <img>
-        </div>
-        <div class="column">
-          <img>
-        </div>
-        <div class="column">
-          <img>
-        </div>
-      </div>
 
-    <div class="ui grid" id="infoThree">
-        <div class="ten wide column">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Consectetur, esse neque? Aliquam quisquam suscipit, exercitationem deserunt voluptatum modi. Vel, omnis excepturi? Soluta quasi mollitia fugit libero itaque quo sapiente porro.</p>
-        </div>
-        <div class="four wide column">
-        <img src="https://via.placeholder.com/150">
-        </div>
     </div>
+
 
 </div><!--Showallstatefact DIV ENDS-->
   
 
 </div><!--END OF CONTAINER-->
 
-
+<script src="stateNames.js"></script>
 <script src="script.js"></script>
+
 
 </body>
 
