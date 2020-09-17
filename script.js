@@ -1,9 +1,9 @@
-$("#covidButton").on("click", function() {  
-    $('.ui.modal').modal('show');
-    //insert what goes inside the modal here
-});
+$(document).ready(function() { //===BEGINNING OF ALL PAGE
 
 var getCity = JSON.parse(localStorage.getItem('getCity')) || [];
+
+//VARIABLE FOR STATE TO BE CONVERTED
+var stateIDforAPI = "";
 
 function renderCity() {
     $("#newCityList").empty();
@@ -13,7 +13,6 @@ function renderCity() {
         a.attr("data-name", getCity[i]);
         a.text(getCity[i]);
         $("#newCityList").append(a);
-        
     };
 };
 //run the function to add new city on the sideline
@@ -26,6 +25,8 @@ $("#searchIcon").on("click", function() {
     var newCityInput = $("#searchInput").val().trim();
     //insert function for city picture display
       //=============================
+
+      //=============================
     // use that input info for getCity variable
     getCity.push(newCityInput);
     //save any new city typed in to search bar
@@ -35,13 +36,17 @@ $("#searchIcon").on("click", function() {
     $("#stateName").append(newCityInput)
     convertState(newCityInput);
     //write function for ajax here
+    ajaxCallStateData();
+});
+
+//click function for covidbutton
+$("#covidButton").on("click", function() {  
+    $('.ui.modal').modal('show');
+    //insert what goes inside the modal here
 });
 
 var googleAPIKey = "AIzaSyBmtloOP1ulwJc773TYUNTOXo1n-QncgFo";
-var triposoAccount = "BD0IOKOY";
-var triposo = "mvo5l46vms96lmtmgvhmj9gztbc138fi";
 
-var stateIDforAPI = "";
 
 function convertState(newCityInput) {
     for (var i = 0; i < stateNames.length; i++) {
@@ -52,4 +57,25 @@ function convertState(newCityInput) {
     }
 }
 
+function ajaxCallStateData(newCityInput) {
+    var triposoAccount = "BD0IOKOY";
+    var triposo = "mvo5l46vms96lmtmgvhmj9gztbc138fi";
+    
+    var queryURL = "https://www.triposo.com/api/20200803/location.json?us_statecode="+ stateIDforAPI + "&account=" + triposoAccount + "&token=" + triposo;
+
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (stateData) {
+        var stateSnip = stateData.results[1].snippet;
+        console.log(stateSnip);
+        $(".snippetGoesHere").append(stateSnip);
+        var stateImage = stateData.results[1].images[1].source_url;
+        $(".tinyImageGoesHere").attr("src", stateImage);
+        $(".tinyImageGoesHere").attr("width", "150px");
+    }) //== END OF $.ajax function
+} //=== ENF OF ajaxCallStateData
+
+
+}) //=== END OF ALL PAGE
 
