@@ -6,7 +6,7 @@ body {
 
 .container {
     margin: auto;
-    height: 1200px;
+    height: 1600px;
     background: url("ocean.jpg") center center fixed;
     background-size: cover;
     background-color: rgb(60, 65, 70);
@@ -29,7 +29,7 @@ body {
 .sidebar {
     margin: 0;
     padding: 0;
-    padding-top: 300px;
+    padding-top: 280px;
     width: 200px;
     background-color: #f1f1f1;
     opacity: 0.8;
@@ -38,15 +38,17 @@ body {
     overflow: auto;
   }
   
-.sidebar a {
+.sidebar button {
     display: block;
     color: black;
     padding: 16px;
     text-decoration: none;
     font-size: medium;
+    width: 100%;
+    border: none;
   }
 
-.sidebar a:hover:not(.active) {
+.sidebar button:hover:not(.active) {
     background-color: lightskyblue;
     color: white;
   }
@@ -57,22 +59,26 @@ body {
       height: auto;
       position: relative;
     }
-    .sidebar a {float: left;}
+    .sidebar button {float: left;}
     div.content {margin-left: 0;}
   }
   
 @media screen and (max-width: 400px) {
-    .sidebar a {
+    .sidebar button {
       text-align: center;
       float: none;
     }
   }
 
-.modalGoesHere {
-      margin-left: 380px;
-      padding-top: 10px;
-      padding-bottom: 10px;
-  }
+#infoZero {
+    background-color: lightskyblue;
+    margin: auto;
+    padding: auto;
+    width: 700px;
+    height: auto;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
 
 #infoOne {
     background-color: lightskyblue;
@@ -88,10 +94,9 @@ body {
     background-color: lightskyblue;
     margin: auto;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 100px;
     width: 700px;
     height: auto;
-    align-content: content; 
   }
 
 .showAllStateFacts {
@@ -113,4 +118,8 @@ body {
 
 hr {
     border: solid 1px #f1f1f1;
+}
+
+img {
+  margin: 5px;
 }

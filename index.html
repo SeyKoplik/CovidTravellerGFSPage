@@ -11,79 +11,70 @@
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"
         integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
-
 </head>
 
 <body>
-    <div class="container"> <!--CONTAINER OF ALL PAGE-->
-       
-        <div class="sidebar" 
-            id="newCityList">
+    <div class="container">
+        <!--CONTAINER OF ALL PAGE-->
+
+        <div class="sidebar" id="newStateList">
             <!--BEGIN SIDEBAR-->
-        </div><!--END SIDEBAR-->
+        </div>
+        <!--END SIDEBAR-->
 
-    <header class="siteHeader"> <!--BEGINNING OF HEADER-->
-        <div>
-            <h1>CovidTravellarGFS</h1>
-            <h3 id="h3Header">
-                Providing information about any given travel destination <br>
-                as well as real-time covid status report.
-            </h3>
-        <div class="searchPart">
-        <div class="ui massive icon input">
-            <input type="text" placeholder="Enter a state.." id="searchInput">
-            <a href="#"><i class="search icon" id="searchIcon"></i></a>
-        </div>
-        </div>
-    </header> <!--END OF HEADER-->
+        <header class="siteHeader">
+            <!--BEGINNING OF HEADER-->
+            <div>
+                <h1>CovidTravellarGFS</h1>
+                <h3 id="h3Header">
+                    Providing snippet and images about any given state destination <br>
+                    as well as real-time covid status report.
+                </h3>
+                <div class="searchPart">
+                    <div class="ui massive icon input">
+                        <input type="text" placeholder="Enter a state.." id="searchInput">
+                        <a href="#"><i class="search icon" id="searchIcon"></i></a>
+                    </div>
+                </div>
+        </header>
+        <!--END OF HEADER-->
 
-    <!--MODAL BEGIN-->
-    <div class="ui modal">
-        <div class="header">State Covid Info</div>
-        <div class="covidStateChartHere">
-            <!--CHART INFO IN HERE FOR MODAL-->
+
+        <div class="showAllStateFacts">
+            <div class="ui grid" id="infoZero">
+                <div id="canvas-holder-pie" style="width:200%">
+                    <canvas id="chart-area-pie"></canvas>
+                </div>
+            </div>
+
+            <div class="ui grid" id="infoOne">
+                <div class="four wide column">
+                    <img class="tinyImageGoesHere">
+                </div>
+                <div class="ten wide column">
+                    <h3><span id="stateName"></span></h3>
+                    <hr>
+                    <p class="snippetGoesHere"></p>
+                </div>
+            </div>
+
+            <div class="ui four column relaxed grid" id="infoTwo">
+                <img class="bigImage1">
+                <img class="bigImage2">
+                <img class="bigImage3">
+                <img class="bigImage4">
+            </div>
         </div>
-        <div class="actions">
-            <div class="ui approve button">Ok</div>
-        </div>
+        <!--Showallstatefact DIV ENDS-->
+
     </div>
-    <!--MODAL END-->
+    <!--END OF CONTAINER-->
 
-<!--!!REMEMBER TO HIDE!!-->
-  
-<div class="showAllStateFacts"> 
-    <!--CLICK BUTTON FOR MODAL-->
-    <div class="modalGoesHere">
-        <button class="ui primary button" id="covidButton"><h2>Click this to get the covid info</h2></button>
-    </div>
-
-    <div class="ui grid" id="infoOne">
-        <div class="four wide column">
-        <img class="tinyImageGoesHere">
-        </div>
-        <div class="ten wide column">
-        <h3><span id="stateName"></span></h3>
-        <hr>
-        <p class="snippetGoesHere"></p>
-        </div>
-    </div>
-
-    <div class="ui four column relaxed grid" id="infoTwo">
-        <img class="bigImage1">
-        <img class="bigImage2">
-        <img class="bigImage3">
-        <img class="bigImage4">
-    </div>
-
-
-</div><!--Showallstatefact DIV ENDS-->
-  
-
-</div><!--END OF CONTAINER-->
-
-<script src="stateNames.js"></script>
-<script src="script.js"></script>
-
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/Chart.min.js"></script>
+    <script src="assets/utils.js"></script>
+    <script src="stateNames.js"></script>
+    <script src="script.js"></script>
 
 </body>
 
