@@ -17,11 +17,11 @@ body {
     background-color: lightskyblue;
     margin: auto;
     padding: 50px;
-    width: 800px;
+    width: 700px;
 }
 
 .searchPart {
-    margin-left: 260px;
+    margin-left: 200px;
     margin-top: 40px;
     padding: 15px;
 }
@@ -29,15 +29,16 @@ body {
 .sidebar {
     margin: 0;
     padding: 0;
-    padding-top: 200px;
+    padding-top: 300px;
     width: 200px;
     background-color: #f1f1f1;
+    opacity: 0.8;
     position: fixed;
     height: 100%;
     overflow: auto;
   }
   
-  .sidebar a {
+.sidebar a {
     display: block;
     color: black;
     padding: 16px;
@@ -45,18 +46,12 @@ body {
     font-size: medium;
   }
 
-  .sidebar a:hover:not(.active) {
+.sidebar a:hover:not(.active) {
     background-color: lightskyblue;
     color: white;
   }
   
-  div.content {
-    margin-left: 200px;
-    padding: 2px 16px;
-    height: 1000px;
-  }
-  
-  @media screen and (max-width: 700px) {
+@media screen and (max-width: 700px) {
     .sidebar {
       width: 100%;
       height: auto;
@@ -66,7 +61,7 @@ body {
     div.content {margin-left: 0;}
   }
   
-  @media screen and (max-width: 400px) {
+@media screen and (max-width: 400px) {
     .sidebar a {
       text-align: center;
       float: none;
@@ -85,7 +80,7 @@ body {
     margin: auto;
     margin-bottom: 15px;
     padding: 10px;
-    width: 800px;
+    width: 700px;
     height: 200px;
   }
 
@@ -94,7 +89,7 @@ body {
     margin: auto;
     margin-bottom: 15px;
     padding: 10px;
-    width: 800px;
+    width: 700px;
     height: 200px;
   }
 
@@ -102,7 +97,7 @@ body {
     background-color: lightskyblue;
     margin: auto;
     padding: 10px;
-    width: 800px;
+    width: 700px;
     height: 200px;
   }
 
@@ -114,4 +109,11 @@ body {
       padding-top: 12px;
       margin-top: 10px;
       width: 40px;
+  }
+
+  #h3Header {
+      text-align: right;
+      border-top-style: solid;
+      border-top-color: #f1f1f1;
+      padding-top: 5px;
   }
