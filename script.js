@@ -19,8 +19,8 @@ function renderCity() {
 renderCity();
 
 $("#searchIcon").on("click", function() {
-    $(".showAllStateFacts").show();
     event.preventDefault();
+    $(".showAllStateFacts").show();
     // information typed on search bar input here for city to display
     var newCityInput = $("#searchInput").val().trim();
     //insert function for city picture display
@@ -37,6 +37,7 @@ $("#searchIcon").on("click", function() {
     convertState(newCityInput);
     //write function for ajax here
     ajaxCallStateData();
+    displayStatePic();
 });
 
 //click function for covidbutton
@@ -44,9 +45,6 @@ $("#covidButton").on("click", function() {
     $('.ui.modal').modal('show');
     //insert what goes inside the modal here
 });
-
-var googleAPIKey = "AIzaSyBmtloOP1ulwJc773TYUNTOXo1n-QncgFo";
-
 
 function convertState(newCityInput) {
     for (var i = 0; i < stateNames.length; i++) {
@@ -68,13 +66,32 @@ function ajaxCallStateData(newCityInput) {
         method: "GET"
     }).then(function (stateData) {
         var stateSnip = stateData.results[1].snippet;
-        console.log(stateSnip);
         $(".snippetGoesHere").append(stateSnip);
         var stateImage = stateData.results[1].images[1].source_url;
         $(".tinyImageGoesHere").attr("src", stateImage);
         $(".tinyImageGoesHere").attr("width", "150px");
     }) //== END OF $.ajax function
 } //=== ENF OF ajaxCallStateData
+
+function displayStatePic(){
+    var apiKey = "xFUVUkBbo_C02js7Z6F1qftvkYa-c2GTQfHNQ_B7mJk"
+    var queryUrl = "https://api.unsplash.com/search/photos?query="+ stateIDforAPI +"&client_id=" + apiKey
+    $.ajax({
+        url: queryUrl,
+        method: "GET"
+    }).then(function (response) {
+        $(".bigImage1").attr('src',response.results[0].urls.thumb);
+        $(".bigImage2").attr('src',response.results[1].urls.thumb);
+        $(".bigImage3").attr('src',response.results[2].urls.thumb);
+        $(".bigImage4").attr('src',response.results[3].urls.thumb);
+    })
+    }
+
+$(document).on("click", ".city-link", function() {
+    var savedCity = $(this).attr("data-name");
+    ajaxCallStateData(savedCity);
+    displayStatePic(savedCity);
+})
 
 
 }) //=== END OF ALL PAGE
