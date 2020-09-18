@@ -6,7 +6,7 @@ body {
 
 .container {
     margin: auto;
-    height: 1600px;
+    height: 2000PX;
     background: url("ocean.jpg") center center fixed;
     background-size: cover;
     background-color: rgb(60, 65, 70);
@@ -16,7 +16,7 @@ body {
     color: whitesmoke;
     background-color: lightskyblue;
     margin: auto;
-    padding: 50px;
+    padding: 30px;
     width: 700px;
 }
 
@@ -121,5 +121,5 @@ hr {
 }
 
 img {
-  margin: 5px;
+  margin: 5PX;
 }

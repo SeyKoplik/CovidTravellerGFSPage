@@ -12,28 +12,46 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             $("#newStateList").append(a);
         };
     };
-    //run the function to add new state on the sideline
+    // USING THE FUNCTION TO SHOW STATE ON SIDEBAR
     renderState();
 
+    // FUNCTION THAT ATTACHES ACTIONS TO CLICKING THE SEARCH ICON
     $("#searchIcon").on("click", function () {
         event.preventDefault();
+        // DISPLAYING DIVS WITH STATE CONTENT
         $(".showAllStateFacts").show();
-        // information typed on search bar input here for state to display
+        // CALLING INPUT VALUE TO BE USED
         var newStateInput = $("#searchInput").val().trim();
+        // PUSHING VALUE TO LOCALSTORAGE BOX
         getState.push(newStateInput);
-        //save any new state typed in to search bar
+        // SAVE INPUT OF STATE INTO LOCALSTORAGE HERE
         localStorage.setItem('getState', JSON.stringify(getState));
-        //display the states in the sidebar
+        // DISPLAYS STATE ON SIDEBAR WHEN SEARCH IS CLICKED
         renderState();
         $("#stateName").empty();
         $("#stateName").append(newStateInput);
         convertState(newStateInput);
-        //write function for ajax here
+        // ENTER FUNCTIONS FOR AJAX CALL AND POSTING ON PAGE
         ajaxCallStateData(newStateInput);
         displayStatePic(newStateInput);
         ajaxCallForCovid(convertState(newStateInput));
     });
 
+    // FUNCTION THAT ATTACHES ACTIONS TO THE SIDEBAR LINKS
+    $(document).on("click", ".state-link", function () {
+        // DISPLAYING DIVS WITH STATE CONTENT
+        $(".showAllStateFacts").show();
+        // MAKING NEW VARIABLE TO CALL WHATEVER WAS ADDED ON INPUT
+        var savedState = $(this).attr("data-name");
+        console.log(savedState);
+        pieChartData = [];
+        ajaxCallStateData(savedState);
+        displayStatePic(savedState);
+        ajaxCallForCovid(convertState(savedState));
+    });
+
+    // NEED TO USE 2 LETTER STATE CODE FOR A COUPLE AJAX
+    // THIS FUNCTION WILL HELP CONVERT STATE INPUT INTO STATE CODE
     function convertState(newStateInput) {
         for (var i = 0; i < stateNames.length; i++) {
             if (newStateInput.toLowerCase() === stateNames[i].toLowerCase()) {
@@ -41,7 +59,7 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             }
         }
     }
-
+    // FUNCTION TO DISPLAY SNIPPET AND THUMBNAIL
     function ajaxCallStateData(newStateInput) {
         var triposoAccount = "BD0IOKOY";
         var triposo = "mvo5l46vms96lmtmgvhmj9gztbc138fi";
@@ -62,7 +80,7 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             $(".tinyImageGoesHere").attr("width", "150px");
         })
     }
-
+    // FUNCTION TO DISPLAY PICTURES OF STATE
     function displayStatePic(newStateInput) {
         var apiKey = "xFUVUkBbo_C02js7Z6F1qftvkYa-c2GTQfHNQ_B7mJk"
         var queryUrl = "https://api.unsplash.com/search/photos?query=" + newStateInput + "&client_id=" + apiKey
@@ -76,16 +94,7 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             $(".bigImage4").attr('src', response.results[3].urls.thumb);
         })
     }
-
-    $(document).on("click", ".state-link", function () {
-        var savedState = $(this).attr("data-name");
-        console.log(savedState);
-        pieChartData = [];
-        ajaxCallStateData(savedState);
-        displayStatePic(savedState);
-        ajaxCallForCovid(convertState(savedState));
-    })
-
+    // FUNCTION TO DISPLAY COVID CHART
     function ajaxCallForCovid(stateIDForAPI) {
         var queryURL = "https://api.covidtracking.com/v1/states/current.json";
         $.ajax({
@@ -97,9 +106,6 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
 
             for (var i = 0; i < results.length; i++) {
                 if (states == results[i].state) {
-                    console.log(i);
-                    console.log(states);
-                    console.log(results[i].state);
                     var positiveCases = results[i].positive;
                     var negativeCases = results[i].negative;
                     var deaths = results[i].death;
@@ -153,6 +159,15 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
                     window.myPie;
                     window.myPie = new Chart(ctx, config);
                     window.myPie.update();
+
+                    function removeData(config) {
+                        config.data.labels.pop();
+                        config.data.datasets.forEach((dataset) => {
+                            dataset.data.pop();
+                        });
+                        chart.update();
+                    }
+                    removeData();
                 }
             }
         });
