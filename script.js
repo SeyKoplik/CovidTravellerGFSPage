@@ -2,7 +2,7 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
 
     var getState = JSON.parse(localStorage.getItem('getState')) || [];
 
-    function renderCity() {
+    function renderState() {
         $("#newStateList").empty();
         for (var i = 0; i < getState.length; i++) {
             var a = $("<button>");
@@ -13,40 +13,40 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
         };
     };
     //run the function to add new state on the sideline
-    renderCity();
+    renderState();
 
     $("#searchIcon").on("click", function () {
         event.preventDefault();
         $(".showAllStateFacts").show();
         // information typed on search bar input here for state to display
-        var newCityInput = $("#searchInput").val().trim();
-        getState.push(newCityInput);
+        var newStateInput = $("#searchInput").val().trim();
+        getState.push(newStateInput);
         //save any new state typed in to search bar
         localStorage.setItem('getState', JSON.stringify(getState));
-        //display the cities in the sidebar
-        renderCity();
+        //display the states in the sidebar
+        renderState();
         $("#stateName").empty();
-        $("#stateName").append(newCityInput);
-        convertState(newCityInput);
+        $("#stateName").append(newStateInput);
+        convertState(newStateInput);
         //write function for ajax here
-        ajaxCallStateData(newCityInput);
-        displayStatePic(newCityInput);
-        ajaxCallForCovid(convertState(newCityInput));
+        ajaxCallStateData(newStateInput);
+        displayStatePic(newStateInput);
+        ajaxCallForCovid(convertState(newStateInput));
     });
 
-    function convertState(newCityInput) {
+    function convertState(newStateInput) {
         for (var i = 0; i < stateNames.length; i++) {
-            if (newCityInput.toLowerCase() === stateNames[i].toLowerCase()) {
+            if (newStateInput.toLowerCase() === stateNames[i].toLowerCase()) {
                 return stateID[i];
             }
         }
     }
 
-    function ajaxCallStateData(newCityInput) {
+    function ajaxCallStateData(newStateInput) {
         var triposoAccount = "BD0IOKOY";
         var triposo = "mvo5l46vms96lmtmgvhmj9gztbc138fi";
 
-        var queryURL = "https://www.triposo.com/api/20200803/location.json?us_statecode=" + convertState(newCityInput) + "&account=" + triposoAccount + "&token=" + triposo;
+        var queryURL = "https://www.triposo.com/api/20200803/location.json?us_statecode=" + convertState(newStateInput) + "&account=" + triposoAccount + "&token=" + triposo;
 
         $.ajax({
             url: queryURL,
@@ -55,18 +55,18 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             console.log("ajaxCallStateData");
             var stateSnip = stateData.results[1].snippet;
             $("#stateName").empty();
-            $("#stateName").append(newCityInput);
+            $("#stateName").append(newStateInput);
             $(".snippetGoesHere").empty();
             $(".snippetGoesHere").append(stateSnip);
             var stateImage = stateData.results[1].images[1].source_url;
             $(".tinyImageGoesHere").attr("src", stateImage);
             $(".tinyImageGoesHere").attr("width", "150px");
-        }) //== END OF $.ajax function
-    } //=== ENF OF ajaxCallStateData
+        }) 
+    } 
 
-    function displayStatePic(newCityInput) {
+    function displayStatePic(newStateInput) {
         var apiKey = "xFUVUkBbo_C02js7Z6F1qftvkYa-c2GTQfHNQ_B7mJk"
-        var queryUrl = "https://api.unsplash.com/search/photos?query=" + newCityInput + "&client_id=" + apiKey
+        var queryUrl = "https://api.unsplash.com/search/photos?query=" + newStateInput + "&client_id=" + apiKey
         $.ajax({
             url: queryUrl,
             method: "GET"
@@ -80,15 +80,15 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
     }
 
     $(document).on("click", ".state-link", function () {
-        var savedCity = $(this).attr("data-name");
-        ajaxCallStateData(savedCity);
-        displayStatePic(savedCity);
-        ajaxCallForCovid(convertState(savedCity));
+        var savedState = $(this).attr("data-name");
+        ajaxCallStateData(savedState);
+        displayStatePic(savedState);
+        ajaxCallForCovid(convertedState(savedState));
     })
 
-    var queryURL = "https://api.covidtracking.com/v1/states/current.json";
-
     function ajaxCallForCovid(stateIDForAPI) {
+        var queryURL = "https://api.covidtracking.com/v1/states/current.json";
+
         $.ajax({
             url: queryURL,
             method: "GET",
@@ -115,11 +115,9 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
             }
         });
     }
-
     //PIE CHART DATA
     var pieChartData = [];
 
-    /*************************CHART CONFIGURATION*******************/
     //PIE CHART CONFIG
     var config = {
         type: "pie",
