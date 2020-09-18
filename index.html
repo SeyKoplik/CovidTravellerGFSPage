@@ -4,35 +4,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-
-    <title>Project 1</title>
+    <title>CovidTravellarGFS</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
 </head>
 
 <body>
+    <div class="container">
+        <!--CONTAINER OF ALL PAGE-->
 
-    <h1>COVID-19 INFO BY STATE</h1>
+        <div class="sidebar" id="newStateList">
+            <!--BEGIN SIDEBAR-->
+        </div>
+        <!--END SIDEBAR-->
+
+        <header class="siteHeader">
+            <!--BEGINNING OF HEADER-->
+            <div>
+                <h1>CovidTravellarGFS</h1>
+                <h3 id="h3Header">
+                    Providing snippet and images about any given state destination <br>
+                    as well as real-time covid status report.
+                </h3>
+                <div class="searchPart">
+                    <div class="ui massive icon input">
+                        <input type="text" placeholder="Enter a state.." id="searchInput">
+                        <a href="#"><i class="search icon" id="searchIcon"></i></a>
+                    </div>
+                </div>
+        </header>
+        <!--END OF HEADER-->
 
 
-    <input id="states" />
-    <button type="button" onclick="loadDoc()">Search State</button>
-    <div id="results"></div>
+        <div class="showAllStateFacts">
+            <div class="ui grid" id="infoZero">
+                <div id="canvas-holder-pie" style="width:200%">
+                    <canvas id="chart-area-pie"></canvas>
+                </div>
+            </div>
 
+            <div class="ui grid" id="infoOne">
+                <div class="four wide column">
+                    <img class="tinyImageGoesHere">
+                </div>
+                <div class="ten wide column">
+                    <h3><span id="stateName"></span></h3>
+                    <hr>
+                    <p class="snippetGoesHere"></p>
+                </div>
+            </div>
 
-    <!--PIE CHART DISPLAY-->
-    <div id="canvas-holder-pie" style="width:75%">
-        <canvas id="chart-area-pie"></canvas>
+            <div class="ui four column relaxed grid" id="infoTwo">
+                <img class="bigImage1">
+                <img class="bigImage2">
+                <img class="bigImage3">
+                <img class="bigImage4">
+            </div>
+        </div>
+        <!--Showallstatefact DIV ENDS-->
+
     </div>
-    </section>
-    </main>
-    <!-- jQuery JS -->
+    <!--END OF CONTAINER-->
+
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <!-- Code to the JavaScript File -->
     <script src="assets/Chart.min.js"></script>
     <script src="assets/utils.js"></script>
+    <script src="stateNames.js"></script>
     <script src="script.js"></script>
+
 </body>
 
 </html>
