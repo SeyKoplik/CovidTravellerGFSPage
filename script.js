@@ -45,6 +45,7 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
         var savedState = $(this).attr("data-name");
         console.log(savedState);
         pieChartData = [];
+        window.myPie.destroy();
         ajaxCallStateData(savedState);
         displayStatePic(savedState);
         ajaxCallForCovid(convertState(savedState));
@@ -160,14 +161,6 @@ $(document).ready(function () { //===BEGINNING OF ALL PAGE
                     window.myPie = new Chart(ctx, config);
                     window.myPie.update();
 
-                    function removeData(config) {
-                        config.data.labels.pop();
-                        config.data.datasets.forEach((dataset) => {
-                            dataset.data.pop();
-                        });
-                        chart.update();
-                    }
-                    removeData();
                 }
             }
         });
