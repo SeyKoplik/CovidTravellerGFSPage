@@ -38,7 +38,7 @@ Providing details about a certain state you are interested in visiting but have 
 
 ## Links
 
-https://seykoplik.github.io/CovidTravellerGFSPage/
+https://seykoplik.github.io/Project1_CovidTravellerGFSPage/
 
 
 ---
